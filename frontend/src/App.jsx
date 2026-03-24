@@ -1,43 +1,31 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence, motion } from 'framer-motion';
+import { useState } from 'react';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import CustomCursor from './components/CustomCursor';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Skills from './pages/Skills';
-import Contact from './pages/Contact';
+import About from './pages/About';
+import ContactModal from './components/ContactModal';
 import './index.css';
 
-// We wrap the Routes in a separate component to use the useLocation hook for animations
 function AnimatedRoutes() {
   const location = useLocation();
 
   return (
     <AnimatePresence mode="wait">
       <Routes location={location} key={location.pathname}>
-        <Route 
-          path="/" 
-          element={<PageWrapper><Home /></PageWrapper>} 
-        />
-        <Route 
-          path="/projects" 
-          element={<PageWrapper><Projects /></PageWrapper>} 
-        />
-        <Route 
-          path="/skills" 
-          element={<PageWrapper><Skills /></PageWrapper>} 
-        />
-        <Route 
-          path="/contact" 
-          element={<PageWrapper><Contact /></PageWrapper>} 
-        />
+        <Route path="/" element={<PageWrapper><Home /></PageWrapper>} />
+        <Route path="/about" element={<PageWrapper><About /></PageWrapper>} />
+        <Route path="/projects" element={<PageWrapper><Projects /></PageWrapper>} />
+        <Route path="/skills" element={<PageWrapper><Skills /></PageWrapper>} />
       </Routes>
     </AnimatePresence>
   );
 }
 
-// A simple wrapper to handle the entry/exit animation for every page
 function PageWrapper({ children }) {
   return (
     <motion.div
@@ -53,23 +41,24 @@ function PageWrapper({ children }) {
 }
 
 export default function App() {
+  const [isContactOpen, setIsContactOpen] = useState(false);
+
   return (
     <Router>
-      <div className="flex flex-col min-h-screen bg-[#030712] cursor-none lg:cursor-auto">
-        {/* Only show custom cursor on non-touch devices (typically md/lg up can handle cursor-none, but we enforce cursor-none globally in CSS if needed. Let's rely on component) */}
+      <div className="flex flex-col min-h-screen bg-[#fafafa] dark:bg-[#030712] text-gray-900 dark:text-white transition-colors duration-500 cursor-none lg:cursor-auto relative">
         <div className="hidden lg:block">
           <CustomCursor />
         </div>
 
-        {/* Navbar sits on top of everything */}
-        <Navbar />
+        <Navbar onOpenContact={() => setIsContactOpen(true)} />
 
-        {/* Removed pt-32 pb-20 to let pages handle their own padding seamlessly. */}
         <main className="flex-1 w-full overflow-x-hidden">
           <AnimatedRoutes />
         </main>
 
-        <Footer />
+        <Footer onOpenContact={() => setIsContactOpen(true)} />
+
+        <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
       </div>
     </Router>
   );
