@@ -1,0 +1,14 @@
+# Ignore everything in the root
+/*
+
+# Except these directories and files
+!/frontend/
+!/backend/
+!/.gitignore
+!/README.md
+
+# Ignore standard Node/Environment files globally
+node_modules/
+.env
+.env.*
+.DS_Store
