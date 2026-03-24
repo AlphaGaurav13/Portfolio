@@ -49,7 +49,7 @@ export default function About() {
             <div>
               <h3 className="text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] text-sm mb-4 font-mono">Who I Am</h3>
               <h1 className="text-6xl md:text-8xl font-black tracking-tighter uppercase leading-none">
-                About <span className="font-serif italic bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent pr-2">Me</span>
+                About <span className="font-black bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent pr-2">Me</span>
               </h1>
             </div>
             
@@ -98,7 +98,7 @@ export default function About() {
           <div className="text-center mb-16">
             <h3 className="text-gray-500 dark:text-gray-400 uppercase tracking-[0.2em] text-sm mb-4 font-mono">Recognition</h3>
             <h2 className="text-4xl md:text-6xl font-black text-gray-900 dark:text-white tracking-tighter">
-              Certifications & <span className="font-serif italic bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent">Achievements</span>
+              Certifications & <span className="font-black bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent">Achievements</span>
             </h2>
           </div>
 

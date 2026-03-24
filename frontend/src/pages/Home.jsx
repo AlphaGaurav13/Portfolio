@@ -29,8 +29,8 @@ export default function Home() {
   return (
     <div className="relative w-full min-h-screen bg-[#fafafa] dark:bg-[#030712] text-gray-900 dark:text-white overflow-hidden transition-colors duration-500">
       
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0 opacity-40 dark:opacity-100">
+      {/* 3D Background - Hidden in Light mode to prevent broken aesthetic */}
+      <div className="absolute inset-0 z-0 hidden dark:block opacity-100">
         <Canvas camera={{ position: [0, 0, 5] }}>
           <ambientLight intensity={0.5} />
           <directionalLight position={[10, 10, 10]} intensity={1} />
@@ -52,14 +52,14 @@ export default function Home() {
         >
           <h1 className="text-6xl md:text-[6.5rem] font-black tracking-tighter mb-6 text-gray-900 dark:text-white leading-[1.05]">
             I'm Gaurav, a <br className="hidden md:block" />
-            creative <span className="font-serif italic font-black bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent pr-4">engineer</span>
+            creative <span className="font-black bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent pr-4">engineer</span>
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mt-6 font-medium">
             A proactive full-stack developer passionate about creating dynamic web experiences. Building scalable, secure, and modern web applications.
           </p>
         </motion.div>
 
-        {/* Socials & Coding Profiles (Added directly below Hero as requested) */}
+        {/* Socials & Coding Profiles */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function Home() {
                 {
                   name: 'LinkedIn',
                   link: 'https://linkedin.com/in/gauravk2005',
-                  icon: <img src="https://cdn.simpleicons.org/linkedin/0A66C2" alt="LinkedIn" className="w-[30px] h-[30px]" />
+                  icon: <svg className="w-[30px] h-[30px] text-[#0A66C2]" fill="currentColor" viewBox="0 0 24 24"><path fillRule="evenodd" clipRule="evenodd" d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
                 },
                 {
                   name: 'X',
@@ -108,7 +108,7 @@ export default function Home() {
                 },
                 {
                   name: 'CodeForces',
-                  link: '#', 
+                  link: 'https://codeforces.com/profile/WhiteLion', 
                   icon: <img src="https://cdn.simpleicons.org/codeforces/1F8ACB" alt="CodeForces" className="w-[30px] h-[30px]" />
                 }
               ].map((social, idx) => (
