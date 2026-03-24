@@ -42,7 +42,7 @@ export default function Home() {
       </div>
 
       {/* Content Layer */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-20 mt-10">
         {/* Hero Section */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -54,7 +54,7 @@ export default function Home() {
             I'm Gaurav, a <br className="hidden md:block" />
             creative <span className="font-black bg-gradient-to-r from-fuchsia-600 to-purple-600 dark:from-fuchsia-500 dark:to-purple-500 bg-clip-text text-transparent pr-4">engineer</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-2xl leading-relaxed mt-6 font-medium">
+          <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl leading-relaxed mt-6 font-medium">
             A proactive full-stack developer passionate about creating dynamic web experiences. Building scalable, secure, and modern web applications.
           </p>
         </motion.div>
@@ -68,7 +68,7 @@ export default function Home() {
           className="w-full mt-24"
         >
           <div className="w-full max-w-4xl bg-white dark:bg-[#080b14]/50 p-8 pb-10 sm:p-12 rounded-[2.5rem] border border-black/5 dark:border-white/5 shadow-xl dark:shadow-2xl backdrop-blur-xl">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8">Socials</h3>
+            <h3 className="text-3xl font-black text-gray-900 dark:text-white mb-8 tracking-tighter">Socials</h3>
             
             <div className="flex flex-wrap gap-4 sm:gap-6">
               {[
@@ -132,55 +132,88 @@ export default function Home() {
         </motion.div>
 
         {/* Education & Achievements grid */}
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 relative">
+          
+          {/* Education Card */}
           <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="p-8 bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-3xl shadow-lg dark:shadow-none backdrop-blur-md"
+            className="group relative p-8 sm:p-10 bg-white/60 dark:bg-[#0a0f1e]/80 border border-black/5 dark:border-white/10 rounded-[2.5rem] shadow-xl dark:shadow-2xl backdrop-blur-xl hover:border-fuchsia-500/30 dark:hover:border-purple-500/30 transition-all duration-500 overflow-hidden"
           >
-            <h3 className="text-2xl font-bold text-fuchsia-600 dark:text-cyan-400 mb-6 flex items-center gap-3">
-              <span className="text-3xl">🎓</span> Education
-            </h3>
-            <div className="space-y-6">
-              <div>
-                <h4 className="text-xl font-bold text-gray-900 dark:text-white">Bachelor of Technology - CSE</h4>
-                <p className="text-gray-600 dark:text-gray-400">Lovely Professional University, Punjab, India</p>
-                <p className="text-fuchsia-600 dark:text-cyan-500 font-mono text-sm mt-1">Since April 2023 • CGPA: 8.55</p>
+            {/* Internal ambient glow */}
+            <div className="absolute -top-32 -right-32 w-80 h-80 bg-fuchsia-500/10 dark:bg-purple-500/20 blur-[80px] rounded-full group-hover:bg-fuchsia-500/20 transition-colors duration-700"></div>
+
+            <h3 className="relative z-10 text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-10 flex items-center gap-4 tracking-tighter">
+              <div className="w-14 h-14 bg-fuchsia-100 dark:bg-white/10 rounded-2xl flex items-center justify-center shadow-inner filter drop-shadow-sm">
+                <span className="text-3xl">🎓</span>
               </div>
-              <div className="h-px w-full bg-black/10 dark:bg-white/10"></div>
-              <div>
-                <h4 className="text-lg font-bold text-gray-900 dark:text-white">Intermediate (PCM)</h4>
-                <p className="text-gray-600 dark:text-gray-400">Kendriya Vidyalaya No.4 Jalandhar</p>
-                <p className="text-gray-500 dark:text-gray-500 font-mono text-sm mt-1">2021 - 2022 • Percentage: 83.2%</p>
+              Education
+            </h3>
+            
+            <div className="relative z-10 space-y-8">
+              <div className="group/edu hover:translate-x-2 transition-transform duration-300">
+                <h4 className="text-xl font-bold text-gray-900 dark:text-white mb-2">Bachelor of Technology - CSE</h4>
+                <p className="text-gray-600 dark:text-gray-400 font-medium mb-4">Lovely Professional University, Punjab, India</p>
+                <div className="flex flex-wrap gap-3">
+                   <span className="px-3 py-1.5 bg-fuchsia-100 dark:bg-fuchsia-500/20 text-fuchsia-700 dark:text-fuchsia-300 text-xs font-bold rounded-full border border-fuchsia-200 dark:border-fuchsia-500/30 shadow-sm">Since April 2023</span>
+                   <span className="px-3 py-1.5 bg-emerald-100 dark:bg-emerald-500/20 text-emerald-700 dark:text-emerald-300 text-xs font-bold rounded-full border border-emerald-200 dark:border-emerald-500/30 shadow-sm">CGPA: 8.55</span>
+                </div>
+              </div>
+
+              <div className="h-px w-full bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent"></div>
+              
+              <div className="group/edu hover:translate-x-2 transition-transform duration-300">
+                <h4 className="text-lg font-bold text-gray-900 dark:text-white mb-2">Intermediate (PCM)</h4>
+                <p className="text-gray-600 dark:text-gray-400 font-medium mb-4">Kendriya Vidyalaya No.4 Jalandhar</p>
+                <div className="flex flex-wrap gap-3">
+                   <span className="px-3 py-1.5 bg-gray-100 dark:bg-white/10 text-gray-700 dark:text-gray-300 text-xs font-bold rounded-full border border-gray-200 dark:border-white/10 shadow-sm">2021 - 2022</span>
+                   <span className="px-3 py-1.5 bg-blue-100 dark:bg-blue-500/20 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full border border-blue-200 dark:border-blue-500/30 shadow-sm">Percentage: 83.2%</span>
+                </div>
               </div>
             </div>
           </motion.div>
 
+          {/* Achievements Card */}
           <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-50px" }}
-            className="p-8 bg-white dark:bg-white/5 border border-black/5 dark:border-white/10 rounded-3xl shadow-lg dark:shadow-none backdrop-blur-md"
+            transition={{ delay: 0.2 }}
+            className="group relative p-8 sm:p-10 bg-white/60 dark:bg-[#0a0f1e]/80 border border-black/5 dark:border-white/10 rounded-[2.5rem] shadow-xl dark:shadow-2xl backdrop-blur-xl hover:border-cyan-500/30 dark:hover:border-cyan-400/30 transition-all duration-500 overflow-hidden"
           >
-            <h3 className="text-2xl font-bold text-fuchsia-600 dark:text-cyan-400 mb-6 flex items-center gap-3">
-              <span className="text-3xl">🏆</span> Achievements
+            {/* Internal ambient glow */}
+            <div className="absolute -bottom-32 -left-32 w-80 h-80 bg-cyan-500/10 dark:bg-cyan-500/20 blur-[80px] rounded-full group-hover:bg-cyan-500/20 transition-colors duration-700"></div>
+
+            <h3 className="relative z-10 text-3xl md:text-4xl font-black text-gray-900 dark:text-white mb-10 flex items-center gap-4 tracking-tighter">
+              <div className="w-14 h-14 bg-cyan-100 dark:bg-white/10 rounded-2xl flex items-center justify-center shadow-inner filter drop-shadow-sm">
+                <span className="text-3xl">🏆</span>
+              </div>
+              Achievements
             </h3>
-            <ul className="space-y-4 text-gray-700 dark:text-gray-300">
-              <li className="flex items-start gap-3">
-                <span className="text-fuchsia-600 dark:text-cyan-500 mt-1">▹</span>
-                <p>Solved <strong className="text-gray-900 dark:text-white">500+ problems</strong> on LeetCode, strengthening skills in Data Structures & Algorithms.</p>
+            
+            <ul className="relative z-10 space-y-4 text-gray-700 dark:text-gray-300 font-medium">
+              <li className="flex items-start gap-4 p-5 bg-white/50 dark:bg-black/20 rounded-2xl border border-black/5 dark:border-white/5 hover:border-cyan-500/30 dark:hover:border-cyan-400/30 transition-colors shadow-sm dark:shadow-none group/achieve">
+                <div className="mt-0.5 w-7 h-7 rounded-full bg-cyan-100 dark:bg-cyan-500/20 flex items-center justify-center flex-shrink-0 group-hover/achieve:scale-110 transition-transform">
+                  <svg className="w-4 h-4 text-cyan-600 dark:text-cyan-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <p className="leading-relaxed">Solved <strong className="text-gray-900 dark:text-white">500+ problems</strong> on LeetCode, strengthening skills in Data Structures & Algorithms.</p>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-fuchsia-600 dark:text-cyan-500 mt-1">▹</span>
-                <p>Recognized on the <strong className="text-gray-900 dark:text-white">Dean's List</strong> for academic excellence, ranking among the top 10% of students.</p>
+              <li className="flex items-start gap-4 p-5 bg-white/50 dark:bg-black/20 rounded-2xl border border-black/5 dark:border-white/5 hover:border-fuchsia-500/30 dark:hover:border-purple-400/30 transition-colors shadow-sm dark:shadow-none group/achieve">
+                <div className="mt-0.5 w-7 h-7 rounded-full bg-fuchsia-100 dark:bg-fuchsia-500/20 flex items-center justify-center flex-shrink-0 group-hover/achieve:scale-110 transition-transform">
+                  <svg className="w-4 h-4 text-fuchsia-600 dark:text-fuchsia-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="3"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
+                </div>
+                <p className="leading-relaxed">Recognized on the <strong className="text-gray-900 dark:text-white">Dean's List</strong> for academic excellence, ranking among the top 10% of students.</p>
               </li>
-              <li className="flex items-start gap-3">
-                <span className="text-fuchsia-600 dark:text-cyan-500 mt-1">▹</span>
-                <p><strong className="text-gray-900 dark:text-white">5-Star Coder</strong> at HackerRank in C++.</p>
+              <li className="flex items-start gap-4 p-5 bg-white/50 dark:bg-black/20 rounded-2xl border border-black/5 dark:border-white/5 hover:border-yellow-500/30 dark:hover:border-yellow-400/30 transition-colors shadow-sm dark:shadow-none group/achieve">
+                <div className="mt-0.5 w-7 h-7 rounded-full bg-yellow-100 dark:bg-yellow-500/20 flex items-center justify-center flex-shrink-0 group-hover/achieve:scale-110 transition-transform">
+                  <span className="text-[14px] leading-none mb-0.5">⭐</span>
+                </div>
+                <p className="leading-relaxed"><strong className="text-gray-900 dark:text-white">5-Star Coder</strong> at HackerRank in C++.</p>
               </li>
             </ul>
           </motion.div>
+        
         </div>
 
       </div>

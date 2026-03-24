@@ -2,13 +2,26 @@ import { motion } from 'framer-motion';
 
 const projectsData = [
   {
+    _id: '4',
+    title: 'SpotNPlay - Sports Booking Platform',
+    date: 'Feb 2026',
+    description: 'A fully functional sports venue booking platform featuring precise day and time slot filtering, dynamic ground search, and an intuitive real-time reservation flow. Provides comprehensive dashboards for both local players and ground owners.',
+    technologies: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
+    liveLink: 'https://playnsports-app.vercel.app/',
+    githubLink: 'https://github.com/AlphaGaurav13/SpotNPlay',
+    color1: 'bg-emerald-500',
+    color2: 'bg-teal-600'
+  },
+  {
     _id: '3',
     title: 'AirStay - Accommodation Platform',
     date: 'Mar 2026',
     description: 'A full-stack accommodation booking platform inspired by Airbnb. Features include property listings, dynamic search filters, robust user authentication, booking management, and a highly responsive modern UI design.',
     technologies: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
     liveLink: 'https://air-bnb-azure-two.vercel.app/',
-    githubLink: 'https://github.com/AlphaGaurav13'
+    githubLink: 'https://github.com/AlphaGaurav13',
+    color1: 'bg-rose-500',
+    color2: 'bg-orange-500'
   },
   {
     _id: '1',
@@ -16,7 +29,9 @@ const projectsData = [
     date: 'Dec 2025 - Jan 2026',
     description: 'Created a full-stack MERN application with JWT authentication, role-based access control. Implemented AI-powered expense analysis using Gemini 2.5 API (LLM) to provide spending insights, anomaly detection. Designed real-time budget alerts via Socket.IO and secure subscription payments using Razorpay/Stripe.',
     technologies: ['JavaScript', 'React.js', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    githubLink: 'https://github.com/AlphaGaurav13'
+    githubLink: 'https://github.com/AlphaGaurav13',
+    color1: 'bg-blue-500',
+    color2: 'bg-indigo-600'
   },
   {
     _id: '2',
@@ -24,7 +39,9 @@ const projectsData = [
     date: 'Jun 2025 - Jul 2025',
     description: 'Built a responsive marketplace interface enabling smooth browsing of hundreds of products. Developed product listing, cart & checkout, Wishlist, and user dashboard modules. Implemented secure authentication, password hashing, and optimized SQL caching to support 300+ concurrent users.',
     technologies: ['JavaScript', 'PHP', 'Tailwind CSS', 'SQL', 'MySQL', 'XAMPP'],
-    githubLink: 'https://github.com/AlphaGaurav13'
+    githubLink: 'https://github.com/AlphaGaurav13',
+    color1: 'bg-purple-500',
+    color2: 'bg-fuchsia-600'
   }
 ];
 
@@ -37,12 +54,12 @@ export default function Projects() {
         <motion.div 
           animate={{ x: [0, 100, 0], y: [0, -50, 0], scale: [1, 1.1, 1] }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-[5%] right-[20%] w-[300px] h-[300px] bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-[80px]"
+          className="absolute top-[5%] right-[20%] w-[300px] h-[300px] bg-purple-500/10 dark:bg-purple-500/10 rounded-full blur-[80px] mix-blend-multiply dark:mix-blend-screen"
         />
         <motion.div 
           animate={{ x: [0, -50, 0], y: [0, 80, 0], scale: [1, 1.2, 1] }}
           transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-          className="absolute bottom-[10%] left-[10%] w-[400px] h-[400px] bg-cyan-500/10 dark:bg-cyan-500/10 rounded-full blur-[100px]"
+          className="absolute bottom-[10%] left-[10%] w-[400px] h-[400px] bg-cyan-500/10 dark:bg-cyan-500/10 rounded-full blur-[100px] mix-blend-multiply dark:mix-blend-screen"
         />
       </div>
 
@@ -88,13 +105,35 @@ function ProjectCard({ project, index }) {
       className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center group/card`}
     >
       <div className="w-full lg:w-1/2 relative group">
+        
+        {/* Animated Glow Backdrop */}
         <div className="absolute -inset-4 bg-gradient-to-r from-fuchsia-500 to-cyan-500 blur-2xl opacity-15 dark:opacity-10 group-hover:opacity-30 dark:group-hover:opacity-30 transition-opacity duration-700 rounded-[3rem]"></div>
-        <div className="relative aspect-video bg-gray-100 dark:bg-[#0a0f1e] border border-black/5 dark:border-white/10 rounded-[2rem] overflow-hidden shadow-xl dark:shadow-2xl flex items-center justify-center">
-           <img 
-             src={`https://placehold.co/800x450/030712/a855f7?text=${project.title.split(' - ')[0].replace(/ /g, '+')}&font=Inter`} 
-             alt={project.title} 
-             className="w-full h-full object-cover opacity-90 dark:opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700"
+        
+        {/* Dynamic Animated Canvas Replacing the Static Image */}
+        <div className="relative w-full aspect-video bg-gray-900 dark:bg-[#0a0f1e] border border-black/5 dark:border-white/10 rounded-[2rem] overflow-hidden shadow-xl dark:shadow-2xl flex items-center justify-center">
+           
+           {/* Floating Blobs dedicated to each project's bespoke colors */}
+           <motion.div 
+             animate={{ rotate: 360, scale: [1, 1.2, 1] }} 
+             transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+             className={`absolute -top-[30%] -left-[20%] w-[80%] h-[80%] rounded-full opacity-70 blur-[60px] ${project.color1}`} 
            />
+           <motion.div 
+             animate={{ rotate: -360, scale: [1, 1.3, 1] }} 
+             transition={{ duration: 30, repeat: Infinity, ease: "linear", delay: 1 }}
+             className={`absolute -bottom-[30%] -right-[20%] w-[80%] h-[80%] rounded-full opacity-60 blur-[70px] ${project.color2}`} 
+           />
+           
+           {/* Frosted Grid Pattern Overlay */}
+           <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGNpcmNsZSBjeD0iMiIgY3k9IjIiIHI9IjEiIGZpbGw9InJnYmEoMjU1LDI1NSwyNTUsMC4wNykiLz48L3N2Zz4=')] opacity-50 dark:opacity-30 mix-blend-overlay"></div>
+           
+           {/* Dark Scrim to keep text legible */}
+           <div className="absolute inset-0 bg-black/10 dark:bg-black/30 group-hover:bg-black/0 transition-colors duration-700"></div>
+
+           <h4 className="relative z-10 text-3xl md:text-5xl lg:text-5xl font-black text-white/90 uppercase tracking-tighter mix-blend-overlay filter drop-shadow-2xl group-hover:scale-110 transition-transform duration-700 px-6 text-center leading-tight">
+             {project.title.split(' - ')[0]}
+           </h4>
+
         </div>
       </div>
 
@@ -144,13 +183,13 @@ function ProjectCard({ project, index }) {
               href={project.liveLink} 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-black font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2 group ml-auto lg:ml-0 shadow-lg dark:shadow-white/5"
+              className="px-6 py-3 bg-gray-900 dark:bg-white text-white dark:text-black font-bold rounded-full hover:scale-105 transition-transform flex items-center gap-2 group ml-auto lg:ml-0 shadow-lg dark:shadow-white/5 whitespace-nowrap text-sm"
             >
-              <svg className="w-5 h-5 text-gray-400 dark:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 text-gray-400 dark:text-gray-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
               </svg>
               Live Site
-              <svg className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-3.5 h-3.5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" />
               </svg>
             </a>
