@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 const projectsData = [
   {
     _id: '4',
-    title: 'SpotNPlay - Sports Booking Platform',
+    title: 'SpotAndPlay Web Application',
     date: 'Feb 2026',
     description: 'A fully functional sports venue booking platform featuring precise day and time slot filtering, dynamic ground search, and an intuitive real-time reservation flow. Provides comprehensive dashboards for both local players and ground owners.',
     technologies: ['React.js', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],

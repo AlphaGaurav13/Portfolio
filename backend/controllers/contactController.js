@@ -23,6 +23,8 @@ exports.getMessageById = async (req, res) => {
   }
 };
 
+const nodemailer = require('nodemailer');
+
 // Submit contact form
 exports.submitContact = async (req, res) => {
   try {
@@ -41,6 +43,26 @@ exports.submitContact = async (req, res) => {
     });
 
     await contact.save();
+
+    // Nodemailer configuration
+    const transporter = nodemailer.createTransport({
+      service: 'gmail',
+      auth: {
+        user: process.env.EMAIL_USER,
+        pass: process.env.EMAIL_PASS
+      }
+    });
+
+    const mailOptions = {
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
+      subject: `Portfolio Contact: ${subject}`,
+      text: `You have a new message from your portfolio contact form.\n\nName: ${name}\nEmail: ${email}\nSubject: ${subject}\n\nMessage:\n${message}`,
+      replyTo: email
+    };
+
+    await transporter.sendMail(mailOptions);
+
     res.status(201).json({ message: 'Message sent successfully', contact });
   } catch (err) {
     res.status(500).json({ error: 'Server error: ' + err.message });
